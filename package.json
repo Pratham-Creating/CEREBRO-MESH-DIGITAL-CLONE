@@ -1,0 +1,21 @@
+{
+  "name": "local-activity-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Windows activity tracker with a MySQL timeline dashboard",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@google/genai": "^2.27.0",
+    "@google/generative-ai": "^0.24.1",
+    "better-sqlite3": "^12.11.1",
+    "chokidar": "^4.0.3",
+    "dotenv": "^16.4.7",
+    "screenshot-desktop": "^1.15.6",
+    "uiohook-napi": "^1.5.5"
+  }
+}

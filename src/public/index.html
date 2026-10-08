@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEREBRO Digital Clone</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="brain-icon"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/></svg>
+        <span>CEREBRO</span>
+      </div>
+      <nav>
+        <a href="#dashboard" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:10px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          Dashboard
+        </a>
+        <a href="#chat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;margin-right:10px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Ask CEREBRO
+        </a>
+      </nav>
+      <div class="status-indicator">
+        <div class="pulse"></div>
+        <span id="status">Connecting...</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section id="dashboard" class="page active">
+        <header>
+          <h1>Digital Clone Timeline</h1>
+          <p class="subtitle">Real-time local activity tracking</p>
+          <div class="toolbar">
+            <select id="range" class="glass-select">
+              <option value="today">Today</option>
+              <option value="week">Last 7 days</option>
+              <option value="all">All time</option>
+            </select>
+            <button id="refresh" class="glass-btn">Refresh</button>
+          </div>
+        </header>
+        
+        <div class="metrics" id="metrics">
+          <div class="metric-card glass-card"><span>Tracked Apps</span><strong>—</strong></div>
+          <div class="metric-card glass-card"><span>Events</span><strong>—</strong></div>
+          <div class="metric-card glass-card"><span>Status</span><strong>—</strong></div>
+        </div>
+
+        <div class="grid-panel">
+          <div class="panel glass-card">
+            <h2>Time Spent</h2>
+            <div id="apps" class="bars"></div>
+          </div>
+          <div class="panel glass-card">
+            <div class="header-split">
+              <h2>Recent Activity</h2>
+              <select id="eventType" class="glass-select">
+                <option value="">All events</option>
+                <option value="window_focus">Window focus</option>
+                <option value="input_batch">Keystrokes & Clicks</option>
+                <option value="file_modified">File Modified</option>
+                <option value="screenshot">Screenshots</option>
+                <option value="network_activity">Network</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>When</th><th>Type</th><th>App</th><th>Detail</th></tr></thead>
+                <tbody id="events"><tr><td colspan="4">Loading...</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="chat" class="page">
+        <header>
+          <h1>Ask CEREBRO</h1>
+          <p class="subtitle">Query your digital clone database directly using natural language.</p>
+        </header>
+        <div class="chat-container glass-card">
+          <div id="chat-messages" class="chat-messages">
+            <div class="message system">
+              <div class="avatar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+              <div class="text">Hello! I am CEREBRO. You can ask me things like:<br><br>• What did I do in vscode today?<br>• Which app did I spend the most time on?<br>• What files did I modify recently?</div>
+            </div>
+          </div>
+          <form id="chat-form" class="chat-input">
+            <input type="text" id="chat-input" placeholder="e.g., What did I work on today?" required autocomplete="off">
+            <button type="submit" class="send-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

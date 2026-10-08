@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: activity-tracker-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: activity_tracker
+      MYSQL_USER: activity_app
+      MYSQL_PASSWORD: change-me
+      MYSQL_ROOT_PASSWORD: local-root-change-me
+    ports:
+      - "3306:3306"
+    volumes:
+      - activity_tracker_mysql:/var/lib/mysql
+
+volumes:
+  activity_tracker_mysql:
